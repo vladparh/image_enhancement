@@ -64,9 +64,9 @@ class GANtrainer(pl.LightningModule):
         lr_img, hr_img = batch
         gen_img = self.generator(lr_img)
         fake_logits = self.discriminator(gen_img)
-        if batch_idx == 0 and self.logger == pl.loggers.WandbLogger:
+        if batch_idx == 0 and type(self.logger) is pl.loggers.wandb.WandbLogger:
             grid = make_grid((gen_img[:4] * 255).type(torch.uint8))
-            self.logger.experiment.add_image("example_images", grid, 0)
+            self.logger.log_image(key="example_images", images=grid)
         percept_loss, _ = self.percept_loss(gen_img, hr_img)
         gan_loss = self.gan_loss(fake_logits, target_is_real=True, is_disc=False)
         l1_loss = self.l1_loss(gen_img, hr_img)
