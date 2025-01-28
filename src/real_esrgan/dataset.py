@@ -7,7 +7,7 @@ from torchvision.io import read_image
 from torchvision.transforms import v2
 
 
-def pair_crop(lr_img, hr_img, hr_size=356, scale_factor=4):
+def pair_crop(lr_img, hr_img, hr_size=256, scale_factor=4):
     lr_size = hr_size // scale_factor
     nx = (hr_img.shape[-2] - hr_size) * np.random.rand() / hr_img.shape[-2]
     ny = (hr_img.shape[-1] - hr_size) * np.random.rand() / hr_img.shape[-1]
@@ -40,7 +40,7 @@ class SuperResolutionDataset(Dataset):
         p_flip=0.5,
     ):
         self.img_dir = img_dir
-        self.is_crop = True
+        self.is_crop = is_crop
         self.hr_size = hr_size
         self.scale_factor = scale_factor
         self.is_flip = is_flip

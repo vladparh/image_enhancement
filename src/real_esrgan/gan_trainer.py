@@ -62,14 +62,12 @@ class GANtrainer(pl.LightningModule):
     def validation_step(self, batch, batch_idx):
         lr_img, hr_img = batch
         gen_img = self.generator(lr_img)
-        fake_logits = self.discriminator(gen_img)
         if batch_idx == 0 and type(self.logger) is pl.loggers.wandb.WandbLogger:
             images = [img for img in (gen_img[:4] * 255).type(torch.uint8).detach()]
             self.logger.log_image(key="example_images", images=images)
         percept_loss, _ = self.percept_loss(gen_img, hr_img)
-        gan_loss = self.gan_loss(fake_logits, target_is_real=True, is_disc=False)
         l1_loss = self.l1_loss(gen_img, hr_img)
-        loss = percept_loss + gan_loss + l1_loss
+        loss = percept_loss + l1_loss
         self.log("val_g_loss", loss)
 
     def configure_optimizers(self):
