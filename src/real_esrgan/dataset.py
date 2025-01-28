@@ -20,12 +20,31 @@ def pair_crop(lr_img, hr_img, hr_size=356, scale_factor=4):
     return crop_lr, crop_hr
 
 
+def pair_flip(lr_img, hr_img, p_flip):
+    if np.random.rand() <= p_flip:
+        flip_lr = v2.functional.horizontal_flip(lr_img)
+        flip_hr = v2.functional.horizontal_flip(hr_img)
+        return flip_lr, flip_hr
+    else:
+        return lr_img, hr_img
+
+
 class SuperResolutionDataset(Dataset):
-    def __init__(self, img_dir, is_crop=True, hr_size=256, scale_factor=4):
+    def __init__(
+        self,
+        img_dir,
+        is_crop=True,
+        hr_size=256,
+        scale_factor=4,
+        is_flip=False,
+        p_flip=0.5,
+    ):
         self.img_dir = img_dir
         self.is_crop = True
         self.hr_size = hr_size
         self.scale_factor = scale_factor
+        self.is_flip = is_flip
+        self.p_flip = p_flip
 
     def __len__(self):
         return len(os.listdir(self.img_dir + "LR"))
@@ -37,4 +56,6 @@ class SuperResolutionDataset(Dataset):
         lr_img = lr_img.type(torch.float32) / 255.0
         if self.is_crop:
             lr_img, hr_img = pair_crop(lr_img, hr_img, self.hr_size, self.scale_factor)
+        if self.is_flip:
+            lr_img, hr_img = pair_flip(lr_img, hr_img, self.p_flip)
         return lr_img, hr_img
