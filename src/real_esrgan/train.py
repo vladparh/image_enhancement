@@ -1,12 +1,12 @@
 import pytorch_lightning as pl
 import torch
-from dataset import SuperResolutionDataset
 from discriminator import UNetDiscriminatorSN
 from gan_trainer import GANtrainer
 from generator import RRDBNet
 from logger import get_logger
 from losses.basic_loss import L1Loss, PerceptualLoss
 from losses.gan_loss import GANLoss
+from real_dataset import SuperResolutionDataset
 from torch.utils.data import DataLoader
 
 
