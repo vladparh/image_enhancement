@@ -7,27 +7,22 @@ class DistillationTrainer(pl.LightningModule):
     def __init__(self, teacher, student, dist_loss, target_loss, lr):
         super().__init__()
         self.teacher = teacher
+        self.teacher.eval()
         self.student = student
         self.dist_loss = dist_loss
         self.target_loss = target_loss
         self.lr = lr
 
-        self.automatic_optimization = False
-
     def training_step(self, batch, batch_idx):
-        student_optimizer = self.optimizers()
         lr_img, hr_img = batch
-        self.teacher.eval()
         with torch.no_grad():
             teacher_output = self.teacher(lr_img)
         gen_image = self.student(lr_img)
         loss = self.dist_loss(gen_image, teacher_output) + self.target_loss(
             gen_image, hr_img
         )
-        student_optimizer.zero_grad()
-        self.manual_backward(loss)
-        student_optimizer.step()
         self.log("train_loss", loss, prog_bar=True, on_epoch=True)
+        return loss
 
     def validation_step(self, batch, batch_idx):
         lr_img, hr_img = batch
