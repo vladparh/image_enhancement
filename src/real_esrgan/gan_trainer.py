@@ -1,5 +1,6 @@
 import pytorch_lightning as pl
 import torch
+from torchmetrics.functional.image import peak_signal_noise_ratio
 
 
 class GANtrainer(pl.LightningModule):
@@ -65,10 +66,8 @@ class GANtrainer(pl.LightningModule):
         if batch_idx == 0 and type(self.logger) is pl.loggers.wandb.WandbLogger:
             images = [img for img in (gen_img[:4] * 255).type(torch.uint8).detach()]
             self.logger.log_image(key="example_images", images=images)
-        percept_loss, _ = self.percept_loss(gen_img, hr_img)
-        l1_loss = self.l1_loss(gen_img, hr_img)
-        loss = percept_loss + l1_loss
-        self.log("val_g_loss", loss)
+        val_metric = peak_signal_noise_ratio(gen_img, hr_img)
+        self.log("val_psnr", val_metric)
 
     def configure_optimizers(self):
         g_opt = torch.optim.Adam(self.generator.parameters(), lr=self.g_lr)

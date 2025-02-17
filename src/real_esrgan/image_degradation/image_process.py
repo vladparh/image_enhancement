@@ -13,7 +13,7 @@ from .degradations import (
     random_mixed_kernels,
 )
 from .diffjpeg import DiffJPEG
-from .utils import filter2D
+from .utils import USMSharp, filter2D
 
 config = Config("config.yaml")
 
@@ -106,12 +106,16 @@ def image_degradation(img: torch.Tensor, scale_factor=4):
     else:
         sinc_kernel = pulse_tensor
 
-    kernel1 = torch.FloatTensor(kernel1)
-    kernel2 = torch.FloatTensor(kernel2)
+    kernel1 = torch.FloatTensor(kernel1).to(img.device)
+    kernel2 = torch.FloatTensor(kernel2).to(img.device)
+    sinc_kernel = sinc_kernel.to(img.device)
 
+    usm_sharpener = USMSharp().to(img.device)
     gt = img.unsqueeze(0)
+    if config["gt_usm"]:
+        gt = usm_sharpener(gt)
     ori_h, ori_w = gt.size()[2:4]
-    jpeger = DiffJPEG(differentiable=False)
+    jpeger = DiffJPEG(differentiable=False).to(img.device)
 
     # ----------------------- The first degradation process ----------------------- #
     # blur

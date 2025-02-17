@@ -3,3 +3,4 @@ torchvision
 pytorch-lightning
 bestconfig
 opencv-python
+torchmetrics
