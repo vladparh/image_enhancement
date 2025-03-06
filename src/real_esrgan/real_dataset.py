@@ -39,6 +39,7 @@ class SuperResolutionDataset(Dataset):
         is_flip=False,
         p_flip=0.5,
     ):
+        super().__init__()
         self.img_dir = img_dir
         self.is_crop = is_crop
         self.hr_size = hr_size

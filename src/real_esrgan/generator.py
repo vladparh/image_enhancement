@@ -1,9 +1,8 @@
 # from https://github.com/xinntao/Real-ESRGAN.git
 import torch
+from arch_util import default_init_weights, make_layer, pixel_unshuffle
 from torch import nn as nn
 from torch.nn import functional as F
-
-from .arch_util import default_init_weights, make_layer, pixel_unshuffle
 
 
 class ResidualDenseBlock(nn.Module):
