@@ -32,8 +32,8 @@ def main():
             "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/naf_net/weights/NAFNet-GoPro-width32.pth"
         )["params"]
     )
-    model = model.to(device)
     enhancer = Enhancer(model=model)
+    enhancer = enhancer.to(device)
     img = enhancer.predict(img, use_split=True)
     img1 = to_pil_image(img[0].squeeze(0).clamp(0, 1))
     img2 = to_pil_image(img[1].squeeze(0).clamp(0, 1))

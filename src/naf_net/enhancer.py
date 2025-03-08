@@ -1,17 +1,19 @@
 import math
 
 import torch
+import torch.nn as nn
 
 
-class Enhancer:
+class Enhancer(nn.Module):
     def __init__(self, model, crop_size=256, max_minibatch=None):
+        super().__init__()
         self.model = model
         self.crop_size = crop_size
         self.max_minibatch = max_minibatch
 
-    def feed_data(self, data):
-        self.lq = data
-        self.device = data.device
+    def forward(self, x):
+        out = self.model(x)
+        return out
 
     def predict_with_crop(self, lq):
         b, c, h, w = lq.size()
@@ -48,7 +50,7 @@ class Enhancer:
                     j = w - self.crop_size
                     last_j = True
                 preds[:, :, i : i + self.crop_size, j : j + self.crop_size] += (
-                    self.model(
+                    self.forward(
                         lq[:, :, i : (i + self.crop_size), j : (j + self.crop_size)]
                     )
                     .detach()
@@ -75,7 +77,7 @@ class Enhancer:
                 if use_split:
                     pred = self.predict_with_crop(lq[i:j])
                 else:
-                    pred = self.model(lq[i:j])
+                    pred = self.forward(lq[i:j])
                 if isinstance(pred, list):
                     pred = pred[-1]
                 outs.append(pred.detach())
