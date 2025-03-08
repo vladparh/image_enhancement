@@ -27,7 +27,7 @@ class NetTrainer(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx):
         blur_img, gt_img = batch
-        gen_img = self.model.predict(blur_img, use_split=self.use_split)
+        gen_img = self.model(blur_img)
         val_metric = peak_signal_noise_ratio(gen_img, gt_img)
         self.log("val_psnr", val_metric)
 
