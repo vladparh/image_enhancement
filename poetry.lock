@@ -7,7 +7,7 @@ description = "Happy Eyeballs for asyncio"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "aiohappyeyeballs-2.4.4-py3-none-any.whl", hash = "sha256:a980909d50efcd44795c4afeca523296716d50cd756ddca6af8c65b996e27de8"},
     {file = "aiohappyeyeballs-2.4.4.tar.gz", hash = "sha256:5fdd7d87889c63183afc18ce9271f9b0a7d32c2303e394468dd45d514a757745"},
@@ -20,7 +20,7 @@ description = "Async http client/server framework (asyncio)"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "aiohttp-3.11.11-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:a60804bff28662cbcf340a4d61598891f12eea3a66af48ecfdc975ceec21e3c8"},
     {file = "aiohttp-3.11.11-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:4b4fa1cb5f270fb3eab079536b764ad740bb749ce69a94d4ec30ceee1b5940d5"},
@@ -120,7 +120,7 @@ description = "aiosignal: a list of registered asynchronous callbacks"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "aiosignal-1.3.2-py2.py3-none-any.whl", hash = "sha256:45cde58e409a301715980c2b01d0c28bdde3770d8290b5eb2173759d9acb31a5"},
     {file = "aiosignal-1.3.2.tar.gz", hash = "sha256:a8c255c66fafb1e499c9351d0bf32ff2d8a0321595ebac3b93713656d2436f54"},
@@ -136,7 +136,7 @@ description = "A database migration tool for SQLAlchemy."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "alembic-1.14.1-py3-none-any.whl", hash = "sha256:1acdd7a3a478e208b0503cd73614d5e4c6efafa4e73518bb60e4f2846a37b1c5"},
     {file = "alembic-1.14.1.tar.gz", hash = "sha256:496e888245a53adf1498fcab31713a469c65836f8de76e01399aa1c3e90dd213"},
@@ -157,7 +157,7 @@ description = "Reusable constraint types to use with typing.Annotated"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"},
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
@@ -170,7 +170,7 @@ description = "Timeout context manager for asyncio programs"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"3.11\""
+markers = "python_version < \"3.11\" and (platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or python_version > \"3.9\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\")"
 files = [
     {file = "async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c"},
     {file = "async_timeout-5.0.1.tar.gz", hash = "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3"},
@@ -183,7 +183,7 @@ description = "Classes Without Boilerplate"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "attrs-24.3.0-py3-none-any.whl", hash = "sha256:ac96cd038792094f438ad1f6ff80837353805ac950cd2aa0e0625ef19850c308"},
     {file = "attrs-24.3.0.tar.gz", hash = "sha256:8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"},
@@ -204,7 +204,7 @@ description = "Setup your project config easily"
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "bestconfig-1.3.6-py3-none-any.whl", hash = "sha256:13c7664148316c69170a64c60efc9c47e66139a23dd801c68f0de9d7c73e0daf"},
     {file = "bestconfig-1.3.6.tar.gz", hash = "sha256:51824c63673dbbf0023745320852a0c4adadf2b3b0ff0599da78d4b233f5c363"},
@@ -220,7 +220,7 @@ description = "Fast, simple object-to-object and broadcast signaling"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "blinker-1.9.0-py3-none-any.whl", hash = "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"},
     {file = "blinker-1.9.0.tar.gz", hash = "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"},
@@ -233,7 +233,7 @@ description = "Extensible memoizing collections and decorators"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "cachetools-5.5.1-py3-none-any.whl", hash = "sha256:b76651fdc3b24ead3c648bbdeeb940c1b04d365b38b4af66788f9ec4a81d42bb"},
     {file = "cachetools-5.5.1.tar.gz", hash = "sha256:70f238fbba50383ef62e55c6aff6d9673175fe59f7c6782c7a0b9e38f4a9df95"},
@@ -246,7 +246,7 @@ description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
     {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
@@ -259,7 +259,7 @@ description = "Validate configuration and produce human readable error messages.
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "cfgv-3.4.0-py2.py3-none-any.whl", hash = "sha256:b7265b1f29fd3316bfcd2b330d63d024f2bfd8bcb8b0272f8e19a504856c48f9"},
     {file = "cfgv-3.4.0.tar.gz", hash = "sha256:e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560"},
@@ -272,7 +272,7 @@ description = "The Real First Universal Charset Detector. Open, modern and activ
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "charset_normalizer-3.4.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:91b36a978b5ae0ee86c394f5a54d6ef44db1de0815eb43de826d41d21e4af3de"},
     {file = "charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7461baadb4dc00fd9e0acbe254e3d7d2112e7f92ced2adc96e54ef6501c5f176"},
@@ -375,7 +375,7 @@ description = "Composable command line interface toolkit"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2"},
     {file = "click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"},
@@ -391,7 +391,7 @@ description = "Pickler class to extend the standard pickle.Pickler functionality
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "cloudpickle-3.1.1-py3-none-any.whl", hash = "sha256:c8c5a44295039331ee9dad40ba100a9c7297b6f988e50e87ccdf3765a668350e"},
     {file = "cloudpickle-3.1.1.tar.gz", hash = "sha256:b216fa8ae4019d5482a8ac3c95d8f6346115d8835911fd4aefd1a445e4242c64"},
@@ -404,7 +404,7 @@ description = "Cross-platform colored terminal text."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 groups = ["main", "dev"]
-markers = "platform_system == \"Windows\" and (python_version >= \"3.12\" or python_version <= \"3.11\")"
+markers = "platform_system == \"Windows\" and python_version >= \"3.12\" or platform_system == \"Windows\" and python_version <= \"3.11\""
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -417,7 +417,7 @@ description = "Python library for calculating contours of 2D quadrilateral grids
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "contourpy-1.3.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:880ea32e5c774634f9fcd46504bf9f080a41ad855f4fef54f5380f5133d343c7"},
     {file = "contourpy-1.3.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:76c905ef940a4474a6289c71d53122a4f77766eef23c03cd57016ce19d0f7b42"},
@@ -503,7 +503,7 @@ description = "Composable style cycles"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "cycler-0.12.1-py3-none-any.whl", hash = "sha256:85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"},
     {file = "cycler-0.12.1.tar.gz", hash = "sha256:88bb128f02ba341da8ef447245a9e138fae777f6a23943da4540077d3601eb1c"},
@@ -520,7 +520,7 @@ description = "Databricks SDK for Python (Beta)"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "databricks-sdk-0.41.0.tar.gz", hash = "sha256:dc6f7f3a81c5183ad9bc64526ca0ccea77249cabdba19189448c20534b3eb861"},
     {file = "databricks_sdk-0.41.0-py3-none-any.whl", hash = "sha256:ea813687889839473dc360b65ae24080c6b91dde5e74a1f57595f18b8e6507ea"},
@@ -542,7 +542,7 @@ description = "Python @deprecated decorator to deprecate old python classes, fun
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "Deprecated-1.2.17-py2.py3-none-any.whl", hash = "sha256:69cdc0a751671183f569495e2efb14baee4344b0236342eec29f1fde25d61818"},
     {file = "deprecated-1.2.17.tar.gz", hash = "sha256:0114a10f0bbb750b90b2c2296c90cf7e9eaeb0abb5cf06c80de2c60138de0a82"},
@@ -561,7 +561,7 @@ description = "Distribution utilities"
 optional = false
 python-versions = "*"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "distlib-0.3.9-py2.py3-none-any.whl", hash = "sha256:47f8c22fd27c27e25a65601af709b38e4f0a45ea4fc2e710f65755fa8caaaf87"},
     {file = "distlib-0.3.9.tar.gz", hash = "sha256:a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"},
@@ -574,7 +574,7 @@ description = "A Python library for the Docker Engine API."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "docker-7.1.0-py3-none-any.whl", hash = "sha256:c96b93b7f0a746f9e77d325bcfb87422a3d8bd4f03136ae8a85b37f1898d5fc0"},
     {file = "docker-7.1.0.tar.gz", hash = "sha256:ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c"},
@@ -598,7 +598,7 @@ description = "A platform independent file lock."
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "filelock-3.17.0-py3-none-any.whl", hash = "sha256:533dc2f7ba78dc2f0f531fc6c4940addf7b70a481e269a5a3b93be94ffbe8338"},
     {file = "filelock-3.17.0.tar.gz", hash = "sha256:ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e"},
@@ -616,7 +616,7 @@ description = "A simple framework for building complex web applications."
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "flask-3.1.0-py3-none-any.whl", hash = "sha256:d667207822eb83f1c4b50949b1623c8fc8d51f2341d65f72e1a1815397551136"},
     {file = "flask-3.1.0.tar.gz", hash = "sha256:5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac"},
@@ -641,7 +641,7 @@ description = "Tools to manipulate font files"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "fonttools-4.55.6-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:57d55fc965e5dd20c8a60d880e0f43bafb506be87af0b650bdc42591e41e0d0d"},
     {file = "fonttools-4.55.6-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:127999618afe3a2490fad54bab0650c5fbeab1f8109bdc0205f6ad34306deb8b"},
@@ -716,7 +716,7 @@ description = "A list-like structure which implements collections.abc.MutableSeq
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "frozenlist-1.5.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:5b6a66c18b5b9dd261ca98dffcb826a525334b2f29e7caa54e182255c5f6a65a"},
     {file = "frozenlist-1.5.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d1b3eb7b05ea246510b43a7e53ed1653e55c2121019a97e60cad7efb881a97bb"},
@@ -819,7 +819,7 @@ description = "File-system specification"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "fsspec-2024.12.0-py3-none-any.whl", hash = "sha256:b520aed47ad9804237ff878b504267a3b0b441e97508bd6d2d8774e3db85cee2"},
     {file = "fsspec-2024.12.0.tar.gz", hash = "sha256:670700c977ed2fb51e0d9f9253177ed20cbde4a3e5c0283cc5385b5870c8533f"},
@@ -863,7 +863,7 @@ description = "Git Object Database"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "gitdb-4.0.12-py3-none-any.whl", hash = "sha256:67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"},
     {file = "gitdb-4.0.12.tar.gz", hash = "sha256:5ef71f855d191a3326fcfbc0d5da835f26b13fbcba60c32c21091c349ffdb571"},
@@ -879,7 +879,7 @@ description = "GitPython is a Python library used to interact with Git repositor
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "GitPython-3.1.44-py3-none-any.whl", hash = "sha256:9e0e10cda9bed1ee64bc9a6de50e7e38a9c9943241cd7f585f6df3ed28011110"},
     {file = "gitpython-3.1.44.tar.gz", hash = "sha256:c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269"},
@@ -899,7 +899,7 @@ description = "Google Authentication Library"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "google_auth-2.38.0-py2.py3-none-any.whl", hash = "sha256:e7dae6694313f434a2727bf2906f27ad259bae090d7aa896590d86feec3d9d4a"},
     {file = "google_auth-2.38.0.tar.gz", hash = "sha256:8285113607d3b80a3f1543b75962447ba8a09fe85783432a784fdeef6ac094c4"},
@@ -925,7 +925,7 @@ description = "GraphQL Framework for Python"
 optional = false
 python-versions = "*"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "graphene-3.4.3-py2.py3-none-any.whl", hash = "sha256:820db6289754c181007a150db1f7fff544b94142b556d12e3ebc777a7bf36c71"},
     {file = "graphene-3.4.3.tar.gz", hash = "sha256:2a3786948ce75fe7e078443d37f609cbe5bb36ad8d6b828740ad3b95ed1a0aaa"},
@@ -948,7 +948,7 @@ description = "GraphQL implementation for Python, a port of GraphQL.js, the Java
 optional = false
 python-versions = "<4,>=3.6"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "graphql_core-3.2.5-py3-none-any.whl", hash = "sha256:2f150d5096448aa4f8ab26268567bbfeef823769893b39c1a2e1409590939c8a"},
     {file = "graphql_core-3.2.5.tar.gz", hash = "sha256:e671b90ed653c808715645e3998b7ab67d382d55467b7e2978549111bbabf8d5"},
@@ -964,7 +964,7 @@ description = "Relay library for graphql-core"
 optional = false
 python-versions = ">=3.6,<4"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "graphql-relay-3.2.0.tar.gz", hash = "sha256:1ff1c51298356e481a0be009ccdff249832ce53f30559c1338f22a0e0d17250c"},
     {file = "graphql_relay-3.2.0-py3-none-any.whl", hash = "sha256:c9b22bd28b170ba1fe674c74384a8ff30a76c8e26f88ac3aa1584dd3179953e5"},
@@ -1068,7 +1068,7 @@ description = "WSGI HTTP Server for UNIX"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "platform_system != \"Windows\" and (python_version <= \"3.11\" or python_version >= \"3.12\") and (platform_system == \"Darwin\" or platform_system == \"Linux\" or python_version > \"3.9\" or platform_machine != \"arm64\" or platform_system != \"Darwin\" and platform_system != \"Windows\")"
+markers = "platform_system != \"Windows\" and (python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"},
     {file = "gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"},
@@ -1091,7 +1091,7 @@ description = "File identification library for Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "identify-2.6.6-py2.py3-none-any.whl", hash = "sha256:cbd1810bce79f8b671ecb20f53ee0ae8e86ae84b557de31d89709dc2a48ba881"},
     {file = "identify-2.6.6.tar.gz", hash = "sha256:7bec12768ed44ea4761efb47806f0a41f86e7c0a5fdf5950d4648c90eca7e251"},
@@ -1107,7 +1107,7 @@ description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
 python-versions = ">=3.6"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"},
     {file = "idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"},
@@ -1123,7 +1123,7 @@ description = "Read metadata from Python packages"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "importlib_metadata-8.6.1-py3-none-any.whl", hash = "sha256:02a89390c1e15fdfdc0d7c6b25cb3e62650d0494005c97d6f148bf5b9787525e"},
     {file = "importlib_metadata-8.6.1.tar.gz", hash = "sha256:310b41d755445d74569f993ccfc22838295d9fe005425094fad953d7f15c8580"},
@@ -1148,7 +1148,7 @@ description = "Read resources from Python packages"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version < \"3.10\""
+markers = "python_version < \"3.10\" and (platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or python_version > \"3.9\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\")"
 files = [
     {file = "importlib_resources-6.5.2-py3-none-any.whl", hash = "sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec"},
     {file = "importlib_resources-6.5.2.tar.gz", hash = "sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c"},
@@ -1172,7 +1172,7 @@ description = "Safely pass data to untrusted environments and back."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "itsdangerous-2.2.0-py3-none-any.whl", hash = "sha256:c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef"},
     {file = "itsdangerous-2.2.0.tar.gz", hash = "sha256:e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173"},
@@ -1185,7 +1185,7 @@ description = "A very fast and expressive template engine."
 optional = false
 python-versions = ">=3.7"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "jinja2-3.1.5-py3-none-any.whl", hash = "sha256:aba0f4dc9ed8013c424088f68a5c226f7d6097ed89b246d7749c2ec4175c6adb"},
     {file = "jinja2-3.1.5.tar.gz", hash = "sha256:8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"},
@@ -1204,7 +1204,7 @@ description = "Lightweight pipelining with Python functions"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "joblib-1.4.2-py3-none-any.whl", hash = "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6"},
     {file = "joblib-1.4.2.tar.gz", hash = "sha256:2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"},
@@ -1217,7 +1217,7 @@ description = "A fast implementation of the Cassowary constraint solver"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "kiwisolver-1.4.7-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:8a9c83f75223d5e48b0bc9cb1bf2776cf01563e00ade8775ffe13b0b6e1af3a6"},
     {file = "kiwisolver-1.4.7-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:58370b1ffbd35407444d57057b57da5d6549d2d854fa30249771775c63b5fe17"},
@@ -1342,7 +1342,7 @@ description = "Lightning toolbox for across the our ecosystem."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "lightning_utilities-0.11.9-py3-none-any.whl", hash = "sha256:ac6d4e9e28faf3ff4be997876750fee10dc604753dbc429bf3848a95c5d7e0d2"},
     {file = "lightning_utilities-0.11.9.tar.gz", hash = "sha256:f5052b81344cc2684aa9afd74b7ce8819a8f49a858184ec04548a5a109dfd053"},
@@ -1365,7 +1365,7 @@ description = "A super-fast templating language that borrows the best ideas from
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "Mako-1.3.8-py3-none-any.whl", hash = "sha256:42f48953c7eb91332040ff567eb7eea69b22e7a4affbc5ba8e845e8f730f6627"},
     {file = "mako-1.3.8.tar.gz", hash = "sha256:577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"},
@@ -1386,7 +1386,7 @@ description = "Python implementation of John Gruber's Markdown."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803"},
     {file = "markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"},
@@ -1406,7 +1406,7 @@ description = "Safely add untrusted strings to HTML/XML markup."
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "MarkupSafe-3.0.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7e94c425039cde14257288fd61dcfb01963e658efbc0ff54f5306b06054700f8"},
     {file = "MarkupSafe-3.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:9e2d922824181480953426608b81967de705c3cef4d1af983af849d7bd619158"},
@@ -1478,7 +1478,7 @@ description = "Python plotting package"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "matplotlib-3.9.4-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:c5fdd7abfb706dfa8d307af64a87f1a862879ec3cd8d0ec8637458f0885b9c50"},
     {file = "matplotlib-3.9.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:d89bc4e85e40a71d1477780366c27fb7c6494d293e1617788986f74e2a03d7ff"},
@@ -1545,7 +1545,7 @@ description = "MLflow is an open source platform for the complete machine learni
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "mlflow-2.20.0-py3-none-any.whl", hash = "sha256:e285694c002eeca8e478ddc615a4113c02c0a4f95f19e9c63114e8e752d351fd"},
     {file = "mlflow-2.20.0.tar.gz", hash = "sha256:151b0f982f40255183df459f1f67f5b8e387676859c7de048e3517548827405d"},
@@ -1591,7 +1591,7 @@ description = "MLflow is an open source platform for the complete machine learni
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "mlflow_skinny-2.20.0-py3-none-any.whl", hash = "sha256:983559c1fde2ad5debbcaf36f86575d11f28d042673882205195238d12e872f7"},
     {file = "mlflow_skinny-2.20.0.tar.gz", hash = "sha256:7c3cb1bcb2d258605d2a54d6701d16b72b573bb545b071542ae8b3739ae02904"},
@@ -1633,7 +1633,7 @@ description = "Python library for arbitrary-precision floating-point arithmetic"
 optional = false
 python-versions = "*"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "python_version >= \"3.12\" or python_version <= \"3.11\""
 files = [
     {file = "mpmath-1.3.0-py3-none-any.whl", hash = "sha256:a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"},
     {file = "mpmath-1.3.0.tar.gz", hash = "sha256:7a28eb2a9774d00c7bc92411c19a89209d5da7c4c9a9e227be8330a23a25b91f"},
@@ -1652,7 +1652,7 @@ description = "multidict implementation"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "multidict-6.1.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3380252550e372e8511d49481bd836264c009adb826b23fefcc5dd3c69692f60"},
     {file = "multidict-6.1.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:99f826cbf970077383d7de805c0681799491cb939c25450b9b5b3ced03ca99f1"},
@@ -1758,7 +1758,7 @@ description = "Python package for creating and manipulating graphs and networks"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "networkx-3.2.1-py3-none-any.whl", hash = "sha256:f18c69adc97877c42332c170849c96cefa91881c99a7cb3e95b7c659ebdc1ec2"},
     {file = "networkx-3.2.1.tar.gz", hash = "sha256:9f1bb5cf3409bf324e0a722c20bdb4c20ee39bf1c30ce8ae499c8502b0b5e0c6"},
@@ -1778,7 +1778,7 @@ description = "Node.js virtual environment builder"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "nodeenv-1.9.1-py2.py3-none-any.whl", hash = "sha256:ba11c9782d29c27c70ffbdda2d7415098754709be8a7056d79a737cd901155c9"},
     {file = "nodeenv-1.9.1.tar.gz", hash = "sha256:6ec12890a2dab7946721edbfbcd91f3319c6ccc9aec47be7c7e6b7011ee6645f"},
@@ -1791,7 +1791,7 @@ description = "Fundamental package for array computing in Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "numpy-2.0.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:04494f6ec467ccb5369d1808570ae55f6ed9b5809d7f035059000a37b8d7e86f"},
     {file = "numpy-2.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2635dbd200c2d6faf2ef9a0d04f0ecc6b13b3cad54f7c67c61155138835515d2"},
@@ -2014,7 +2014,7 @@ description = "Wrapper package for OpenCV python bindings."
 optional = false
 python-versions = ">=3.6"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "opencv-python-4.11.0.86.tar.gz", hash = "sha256:03d60ccae62304860d232272e4a4fda93c39d595780cb40b161b310244b736a4"},
     {file = "opencv_python-4.11.0.86-cp37-abi3-macosx_13_0_arm64.whl", hash = "sha256:432f67c223f1dc2824f5e73cdfcd9db0efc8710647d4e813012195dc9122a52a"},
@@ -2042,7 +2042,7 @@ description = "OpenTelemetry Python API"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "opentelemetry_api-1.16.0-py3-none-any.whl", hash = "sha256:79e8f0cf88dbdd36b6abf175d2092af1efcaa2e71552d0d2b3b181a9707bf4bc"},
     {file = "opentelemetry_api-1.16.0.tar.gz", hash = "sha256:4b0e895a3b1f5e1908043ebe492d33e33f9ccdbe6d02d3994c2f8721a63ddddb"},
@@ -2059,7 +2059,7 @@ description = "OpenTelemetry Python SDK"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "opentelemetry_sdk-1.16.0-py3-none-any.whl", hash = "sha256:15f03915eec4839f885a5e6ed959cde59b8690c8c012d07c95b4b138c98dc43f"},
     {file = "opentelemetry_sdk-1.16.0.tar.gz", hash = "sha256:4d3bb91e9e209dbeea773b5565d901da4f76a29bf9dbc1c9500be3cabb239a4e"},
@@ -2078,7 +2078,7 @@ description = "OpenTelemetry Semantic Conventions"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "opentelemetry_semantic_conventions-0.37b0-py3-none-any.whl", hash = "sha256:462982278a42dab01f68641cd89f8460fe1f93e87c68a012a76fb426dcdba5ee"},
     {file = "opentelemetry_semantic_conventions-0.37b0.tar.gz", hash = "sha256:087ce2e248e42f3ffe4d9fa2303111de72bb93baa06a0f4655980bc1557c4228"},
@@ -2091,7 +2091,7 @@ description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -2104,7 +2104,7 @@ description = "Powerful data structures for data analysis, time series, and stat
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pandas-2.2.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:1948ddde24197a0f7add2bdc4ca83bf2b1ef84a1bc8ccffd95eda17fd836ecb5"},
     {file = "pandas-2.2.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:381175499d3802cde0eabbaf6324cce0c4f5d52ca6f8c377c29ad442f50f6348"},
@@ -2192,7 +2192,7 @@ description = "Python Imaging Library (Fork)"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pillow-11.1.0-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:e1abe69aca89514737465752b4bcaf8016de61b3be1397a8fc260ba33321b3a8"},
     {file = "pillow-11.1.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c640e5a06869c75994624551f45e5506e4256562ead981cce820d5ab39ae2192"},
@@ -2282,7 +2282,7 @@ description = "A small Python package for determining appropriate platform-speci
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "platformdirs-4.3.6-py3-none-any.whl", hash = "sha256:73e575e1408ab8103900836b97580d5307456908a03e92031bab39e4554cc3fb"},
     {file = "platformdirs-4.3.6.tar.gz", hash = "sha256:357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"},
@@ -2300,7 +2300,7 @@ description = "A framework for managing and maintaining multi-language pre-commi
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pre_commit-4.1.0-py2.py3-none-any.whl", hash = "sha256:d29e7cb346295bcc1cc75fc3e92e343495e3ea0196c9ec6ba53f49f10ab6ae7b"},
     {file = "pre_commit-4.1.0.tar.gz", hash = "sha256:ae3f018575a588e30dfddfab9a05448bfbd6b73d78709617b5a2b853549716d4"},
@@ -2320,7 +2320,7 @@ description = "Accelerated property cache"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "propcache-0.2.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:6b3f39a85d671436ee3d12c017f8fdea38509e4f25b28eb25877293c98c243f6"},
     {file = "propcache-0.2.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:39d51fbe4285d5db5d92a929e3e21536ea3dd43732c5b177c7ef03f918dff9f2"},
@@ -2413,7 +2413,7 @@ description = ""
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "protobuf-5.29.3-cp310-abi3-win32.whl", hash = "sha256:3ea51771449e1035f26069c4c7fd51fba990d07bc55ba80701c78f886bf9c888"},
     {file = "protobuf-5.29.3-cp310-abi3-win_amd64.whl", hash = "sha256:a4fa6f80816a9a0678429e84973f2f98cbc218cca434abe8db2ad0bffc98503a"},
@@ -2435,7 +2435,7 @@ description = "Python library for Apache Arrow"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pyarrow-18.1.0-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:e21488d5cfd3d8b500b3238a6c4b075efabc18f0f6d80b29239737ebd69caa6c"},
     {file = "pyarrow-18.1.0-cp310-cp310-macosx_12_0_x86_64.whl", hash = "sha256:b516dad76f258a702f7ca0250885fc93d1fa5ac13ad51258e39d402bd9e2e1e4"},
@@ -2491,7 +2491,7 @@ description = "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs 
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pyasn1-0.6.1-py3-none-any.whl", hash = "sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629"},
     {file = "pyasn1-0.6.1.tar.gz", hash = "sha256:6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034"},
@@ -2504,7 +2504,7 @@ description = "A collection of ASN.1-based protocols modules"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pyasn1_modules-0.4.1-py3-none-any.whl", hash = "sha256:49bfa96b45a292b711e986f222502c1c9a5e1f4e568fc30e2574a6c7d07838fd"},
     {file = "pyasn1_modules-0.4.1.tar.gz", hash = "sha256:c28e2dbf9c06ad61c71a075c7e0f9fd0f1b0bb2d2ad4377f240d33ac2ab60a7c"},
@@ -2520,7 +2520,7 @@ description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pydantic-2.10.6-py3-none-any.whl", hash = "sha256:427d664bf0b8a2b34ff5dd0f5a18df00591adcee7198fbd71981054cef37b584"},
     {file = "pydantic-2.10.6.tar.gz", hash = "sha256:ca5daa827cce33de7a42be142548b0096bf05a7e7b365aebfa5f8eeec7128236"},
@@ -2542,7 +2542,7 @@ description = "Core functionality for Pydantic validation and serialization"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pydantic_core-2.27.2-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:2d367ca20b2f14095a8f4fa1210f5a7b78b8a20009ecced6b12818f455b1e9fa"},
     {file = "pydantic_core-2.27.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:491a2b73db93fab69731eaee494f320faa4e093dbed776be1a829c2eb222c34c"},
@@ -2656,7 +2656,7 @@ description = "pyparsing module - Classes and methods to define and execute pars
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pyparsing-3.2.1-py3-none-any.whl", hash = "sha256:506ff4f4386c4cec0590ec19e6302d3aedb992fdc02c761e90416f158dacf8e1"},
     {file = "pyparsing-3.2.1.tar.gz", hash = "sha256:61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"},
@@ -2672,7 +2672,7 @@ description = "Extensions to the standard Python datetime module"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
     {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
@@ -2688,7 +2688,7 @@ description = "PyTorch Lightning is the lightweight PyTorch wrapper for ML resea
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pytorch_lightning-2.5.0.post0-py3-none-any.whl", hash = "sha256:c86bf4fded58b386f312f75337696a9b2d57077b858b3b9524400a03a0179b3a"},
     {file = "pytorch_lightning-2.5.0.post0.tar.gz", hash = "sha256:347235bf8573b4ebcf507a0dd755fcb9ce58c420c77220a9756a6edca0418532"},
@@ -2720,7 +2720,7 @@ description = "World timezone definitions, modern and historical"
 optional = false
 python-versions = "*"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pytz-2024.2-py2.py3-none-any.whl", hash = "sha256:31c7c1817eb7fae7ca4b8c7ee50c72f93aa2dd863de768e1ef4245d426aa0725"},
     {file = "pytz-2024.2.tar.gz", hash = "sha256:2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"},
@@ -2733,7 +2733,7 @@ description = "Python for Window Extensions"
 optional = false
 python-versions = "*"
 groups = ["dev"]
-markers = "sys_platform == \"win32\" and (python_version <= \"3.11\" or python_version >= \"3.12\")"
+markers = "sys_platform == \"win32\" and (python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "pywin32-308-cp310-cp310-win32.whl", hash = "sha256:796ff4426437896550d2981b9c2ac0ffd75238ad9ea2d3bfa67a1abd546d262e"},
     {file = "pywin32-308-cp310-cp310-win_amd64.whl", hash = "sha256:4fc888c59b3c0bef905ce7eb7e2106a07712015ea1c8234b703a088d46110e8e"},
@@ -2762,7 +2762,7 @@ description = "YAML parser and emitter for Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0a9a2848a5b7feac301353437eb7d5957887edbf81d56e903999a75a3d743086"},
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:29717114e51c84ddfba879543fb232a6ed60086602313ca38cce623c1d62cfbf"},
@@ -2826,7 +2826,7 @@ description = "Python HTTP for Humans."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
     {file = "requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"},
@@ -2849,7 +2849,7 @@ description = "Pure-Python RSA implementation"
 optional = false
 python-versions = ">=3.6,<4"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "rsa-4.9-py3-none-any.whl", hash = "sha256:90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7"},
     {file = "rsa-4.9.tar.gz", hash = "sha256:e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21"},
@@ -2865,7 +2865,7 @@ description = "A set of python modules for machine learning and data mining"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "scikit_learn-1.6.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d056391530ccd1e501056160e3c9673b4da4805eb67eb2bdf4e983e1f9c9204e"},
     {file = "scikit_learn-1.6.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:0c8d036eb937dbb568c6242fa598d551d88fb4399c0344d95c001980ec1c7d36"},
@@ -2921,7 +2921,7 @@ description = "Fundamental algorithms for scientific computing in Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "scipy-1.13.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:20335853b85e9a49ff7572ab453794298bcf0354d8068c5f6775a0eabf350aca"},
     {file = "scipy-1.13.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:d605e9c23906d1994f55ace80e0125c587f96c020037ea6aa98d01b4bd2e222f"},
@@ -2965,7 +2965,7 @@ description = "Easily download, build, install, upgrade, and uninstall Python pa
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "setuptools-75.8.0-py3-none-any.whl", hash = "sha256:e3982f444617239225d675215d51f6ba05f845d4eec313da4418fdbb56fb27e3"},
     {file = "setuptools-75.8.0.tar.gz", hash = "sha256:c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"},
@@ -2987,7 +2987,7 @@ description = "Python 2 and 3 compatibility utilities"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
@@ -3000,7 +3000,7 @@ description = "A pure Python implementation of a sliding window memory map manag
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "smmap-5.0.2-py3-none-any.whl", hash = "sha256:b30115f0def7d7531d22a0fb6502488d879e75b260a9db4d0819cfb25403af5e"},
     {file = "smmap-5.0.2.tar.gz", hash = "sha256:26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"},
@@ -3013,7 +3013,7 @@ description = "Database Abstraction Library"
 optional = false
 python-versions = ">=3.7"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "SQLAlchemy-2.0.37-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:da36c3b0e891808a7542c5c89f224520b9a16c7f5e4d6a1156955605e54aef0e"},
     {file = "SQLAlchemy-2.0.37-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e7402ff96e2b073a98ef6d6142796426d705addd27b9d26c3b32dbaa06d7d069"},
@@ -3110,7 +3110,7 @@ description = "A non-validating SQL parser."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "sqlparse-0.5.3-py3-none-any.whl", hash = "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca"},
     {file = "sqlparse-0.5.3.tar.gz", hash = "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272"},
@@ -3127,7 +3127,7 @@ description = "Computer algebra system (CAS) in Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "python_version >= \"3.12\" or python_version <= \"3.11\""
 files = [
     {file = "sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8"},
     {file = "sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f"},
@@ -3146,7 +3146,7 @@ description = "threadpoolctl"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "threadpoolctl-3.5.0-py3-none-any.whl", hash = "sha256:56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467"},
     {file = "threadpoolctl-3.5.0.tar.gz", hash = "sha256:082433502dd922bf738de0d8bcc4fdcbf0979ff44c42bd40f5af8a282f6fa107"},
@@ -3159,7 +3159,7 @@ description = "Tensors and Dynamic neural networks in Python with strong GPU acc
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "torch-2.5.1+cu121-cp310-cp310-linux_x86_64.whl", hash = "sha256:92af92c569de5da937dd1afb45ecfdd598ec1254cf2e49e3d698cb24d71aae14"},
     {file = "torch-2.5.1+cu121-cp310-cp310-win_amd64.whl", hash = "sha256:9b22d6d98aa56f9317902dec0e066814a6edba1aada90110ceea2bb0678df22f"},
@@ -3203,13 +3203,26 @@ url = "https://download.pytorch.org/whl/cu121"
 reference = "pytorch-gpu"
 
 [[package]]
+name = "torchinfo"
+version = "1.8.0"
+description = "Model summary in PyTorch, based off of the original torchsummary."
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
+files = [
+    {file = "torchinfo-1.8.0-py3-none-any.whl", hash = "sha256:2e911c2918603f945c26ff21a3a838d12709223dc4ccf243407bce8b6e897b46"},
+    {file = "torchinfo-1.8.0.tar.gz", hash = "sha256:72e94b0e9a3e64dc583a8e5b7940b8938a1ac0f033f795457f27e6f4e7afa2e9"},
+]
+
+[[package]]
 name = "torchmetrics"
 version = "1.6.1"
 description = "PyTorch native Metrics"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "torchmetrics-1.6.1-py3-none-any.whl", hash = "sha256:c3090aa2341129e994c0a659abb6d4140ae75169a6ebf45bffc16c5cb553b38e"},
     {file = "torchmetrics-1.6.1.tar.gz", hash = "sha256:a5dc236694b392180949fdd0a0fcf2b57135c8b600e557c725e077eb41e53e64"},
@@ -3239,7 +3252,7 @@ description = "image and video datasets and models for torch deep learning"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "torchvision-0.20.1+cu121-cp310-cp310-linux_x86_64.whl", hash = "sha256:304937b82c933d5155bd04d771f4b187273f67a76050bb4276b521f7e9b4c4e7"},
     {file = "torchvision-0.20.1+cu121-cp310-cp310-win_amd64.whl", hash = "sha256:4cb1e44c1f7a4992f6d38a15633a1e694c093f1c52f3a036b1a719968031507a"},
@@ -3272,7 +3285,7 @@ description = "Fast, Extensible Progress Meter"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "tqdm-4.67.1-py3-none-any.whl", hash = "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2"},
     {file = "tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"},
@@ -3319,7 +3332,7 @@ description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
@@ -3332,7 +3345,7 @@ description = "Provider of IANA time zone data"
 optional = false
 python-versions = ">=2"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "tzdata-2025.1-py2.py3-none-any.whl", hash = "sha256:7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639"},
     {file = "tzdata-2025.1.tar.gz", hash = "sha256:24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694"},
@@ -3345,7 +3358,7 @@ description = "HTTP library with thread-safe connection pooling, file post, and 
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "urllib3-2.3.0-py3-none-any.whl", hash = "sha256:1cee9ad369867bfdbbb48b7dd50374c0967a0bb7710050facf0dd6911440e3df"},
     {file = "urllib3-2.3.0.tar.gz", hash = "sha256:f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"},
@@ -3364,7 +3377,7 @@ description = "Virtual Python Environment builder"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "virtualenv-20.29.1-py3-none-any.whl", hash = "sha256:4e4cb403c0b0da39e13b46b1b2476e505cb0046b25f242bee80f62bf990b2779"},
     {file = "virtualenv-20.29.1.tar.gz", hash = "sha256:b8b8970138d32fb606192cb97f6cd4bb644fa486be9308fb9b63f81091b5dc35"},
@@ -3386,7 +3399,7 @@ description = "Waitress WSGI server"
 optional = false
 python-versions = ">=3.9.0"
 groups = ["dev"]
-markers = "platform_system == \"Windows\" and (python_version >= \"3.12\" or python_version <= \"3.11\")"
+markers = "platform_system == \"Windows\" and python_version >= \"3.12\" or platform_system == \"Windows\" and python_version <= \"3.11\""
 files = [
     {file = "waitress-3.0.2-py3-none-any.whl", hash = "sha256:c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e"},
     {file = "waitress-3.0.2.tar.gz", hash = "sha256:682aaaf2af0c44ada4abfb70ded36393f0e307f4ab9456a215ce0020baefc31f"},
@@ -3403,7 +3416,7 @@ description = "The comprehensive WSGI web application library."
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "werkzeug-3.1.3-py3-none-any.whl", hash = "sha256:54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e"},
     {file = "werkzeug-3.1.3.tar.gz", hash = "sha256:60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746"},
@@ -3422,7 +3435,7 @@ description = "Module for decorators, wrappers and monkey patching."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3d57c572081fed831ad2d26fd430d565b76aa277ed1d30ff4d40670b1c0dd984"},
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:b5e251054542ae57ac7f3fba5d10bfff615b6c2fb09abeb37d2f1463f841ae22"},
@@ -3512,7 +3525,7 @@ description = "Yet another URL library"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "yarl-1.18.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7df647e8edd71f000a5208fe6ff8c382a1de8edfbccdbbfe649d263de07d8c34"},
     {file = "yarl-1.18.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c69697d3adff5aa4f874b19c0e4ed65180ceed6318ec856ebc423aa5850d84f7"},
@@ -3610,7 +3623,7 @@ description = "Backport of pathlib-compatible object wrapper for zip files"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
-markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
+markers = "(python_version > \"3.9\" or platform_system == \"Darwin\" or platform_system == \"Linux\" or platform_system == \"Windows\" or platform_system != \"Darwin\" and platform_system != \"Windows\" or platform_machine != \"arm64\") and (python_version >= \"3.12\" or python_version <= \"3.11\")"
 files = [
     {file = "zipp-3.21.0-py3-none-any.whl", hash = "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931"},
     {file = "zipp-3.21.0.tar.gz", hash = "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4"},
@@ -3627,4 +3640,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "65a8e378f1ea386869927571fffa90e79fefa1b454443891904898b5ccef3ffd"
+content-hash = "02887bf982a1dc2b9160c9e84004cd175a85fef3ea91b039a72843dbffcd61da"
