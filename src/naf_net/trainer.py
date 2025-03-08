@@ -18,7 +18,7 @@ class NetTrainer(pl.LightningModule):
     def training_step(self, batch, batch_idx):
         opt = self.optimizers()
         blur_img, gt_img = batch
-        gen_image = self.model.model(blur_img)
+        gen_image = self.model(blur_img)
         loss = self.loss_fn(gen_image, gt_img)
         opt.zero_grad()
         self.manual_backward(loss)
