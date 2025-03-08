@@ -36,7 +36,9 @@ class NetTrainer(pl.LightningModule):
         sch.step()
 
     def configure_optimizers(self):
-        optimizer = torch.optim.AdamW(self.model.model.parameters(), lr=self.lr)
+        optimizer = torch.optim.Adam(
+            self.model.parameters(), betas=(0.9, 0.9), weight_decay=0, lr=self.lr
+        )
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, T_max=self.n_epochs, eta_min=self.min_lr
         )
