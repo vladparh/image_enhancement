@@ -2,18 +2,16 @@ import pytorch_lightning as pl
 import torch
 from torchmetrics.functional.image import peak_signal_noise_ratio
 
-from src.naf_net.losses.losses import PSNRLoss
-
 
 class NetTrainer(pl.LightningModule):
-    def __init__(self, model, lr, min_lr, n_epochs, use_split=True):
+    def __init__(self, model, lr, min_lr, n_epochs, loss_fn, use_split=True):
         super().__init__()
         self.model = model
         self.lr = lr
         self.min_lr = min_lr
         self.n_epochs = n_epochs
+        self.loss_fn = loss_fn
         self.use_split = use_split
-        self.loss_fn = PSNRLoss()
 
         self.automatic_optimization = False
 

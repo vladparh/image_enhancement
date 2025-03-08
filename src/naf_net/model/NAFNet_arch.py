@@ -4,7 +4,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchinfo import summary
 
-from src.naf_net.model.local_arch import Local_Base
+try:
+    from .local_arch import Local_Base
+except ImportError:
+    from local_arch import Local_Base
 
 
 class LayerNormFunction(torch.autograd.Function):
