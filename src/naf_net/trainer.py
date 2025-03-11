@@ -4,7 +4,9 @@ from torchmetrics.functional.image import peak_signal_noise_ratio
 
 
 class NetTrainer(pl.LightningModule):
-    def __init__(self, model, lr, min_lr, n_epochs, loss_fn, use_split=True):
+    def __init__(
+        self, model, lr, min_lr, n_epochs, loss_fn, use_split=True, scheduler=True
+    ):
         super().__init__()
         self.model = model
         self.lr = lr
@@ -12,6 +14,7 @@ class NetTrainer(pl.LightningModule):
         self.n_epochs = n_epochs
         self.loss_fn = loss_fn
         self.use_split = use_split
+        self.scheduler = scheduler
 
         self.automatic_optimization = False
 
@@ -32,14 +35,18 @@ class NetTrainer(pl.LightningModule):
         self.log("val_psnr", val_metric)
 
     def on_train_epoch_end(self):
-        sch = self.lr_schedulers()
-        sch.step()
+        if self.scheduler:
+            sch = self.lr_schedulers()
+            sch.step()
 
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(
             self.model.parameters(), betas=(0.9, 0.9), weight_decay=0, lr=self.lr
         )
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, T_max=self.n_epochs, eta_min=self.min_lr
-        )
-        return {"optimizer": optimizer, "lr_scheduler": scheduler}
+        if self.scheduler:
+            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+                optimizer, T_max=self.n_epochs, eta_min=self.min_lr
+            )
+            return {"optimizer": optimizer, "lr_scheduler": scheduler}
+        else:
+            return optimizer

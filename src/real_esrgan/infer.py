@@ -12,11 +12,11 @@ def main():
     img = img.convert("RGB")
     img = ToTensor()(img).unsqueeze(0)
     model = RRDBNet(
-        num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2
+        num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4
     )
     model.load_state_dict(
         torch.load(
-            "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/real_esrgan/weights/RealESRGAN_x2plus.pth"
+            "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/real_esrgan/weights/RealESRGAN_x4plus.pth"
         )["params_ema"]
     )
     # checkpoint = torch.load("C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/real_esrgan/weights/finetune_model_23B_x2_val_psnr=27.77.ckpt")
@@ -28,7 +28,7 @@ def main():
     #             key.replace("generator.", "")
     #         ] = model_weights.pop(key)
     # model.load_state_dict(generator_model_weights)
-    enhancer = Enchacer(scale=2, model=model, tile_size=400, device=device)
+    enhancer = Enchacer(scale=4, model=model, tile_size=400, device=device)
     img = enhancer.enhance(img)
     img = to_pil_image(img.squeeze(0).clamp(0, 1))
     img.show()
