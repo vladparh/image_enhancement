@@ -4,17 +4,14 @@ from torchmetrics.functional.image import peak_signal_noise_ratio
 
 
 class NetTrainer(pl.LightningModule):
-    def __init__(
-        self, model, lr, min_lr, n_epochs, loss_fn, use_split=True, scheduler=True
-    ):
+    def __init__(self, model, lr, min_lr, n_epochs, loss_fn, use_scheduler=True):
         super().__init__()
         self.model = model
         self.lr = lr
         self.min_lr = min_lr
         self.n_epochs = n_epochs
         self.loss_fn = loss_fn
-        self.use_split = use_split
-        self.scheduler = scheduler
+        self.use_scheduler = use_scheduler
 
         self.automatic_optimization = False
 
@@ -35,7 +32,7 @@ class NetTrainer(pl.LightningModule):
         self.log("val_psnr", val_metric)
 
     def on_train_epoch_end(self):
-        if self.scheduler:
+        if self.use_scheduler:
             sch = self.lr_schedulers()
             sch.step()
 
@@ -43,7 +40,7 @@ class NetTrainer(pl.LightningModule):
         optimizer = torch.optim.Adam(
             self.model.parameters(), betas=(0.9, 0.9), weight_decay=0, lr=self.lr
         )
-        if self.scheduler:
+        if self.use_scheduler:
             scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                 optimizer, T_max=self.n_epochs, eta_min=self.min_lr
             )
