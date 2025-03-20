@@ -3,7 +3,7 @@ from torch.utils.data import Dataset
 from torchvision.io import read_image
 from torchvision.transforms import v2
 
-from src.real_esrgan.image_degradation.image_process import image_degradation
+from .image_degradation.image_process import image_degradation
 
 
 class SynthDataset(Dataset):
