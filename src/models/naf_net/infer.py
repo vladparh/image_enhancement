@@ -4,7 +4,7 @@ from PIL import Image
 from torchvision.transforms import ToTensor
 from torchvision.transforms.functional import to_pil_image
 
-from src.real_esrgan.upscale_image import Enchacer
+from src.models.real_esrgan.upscale_image import Enchacer
 
 
 def main():
