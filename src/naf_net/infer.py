@@ -9,10 +9,10 @@ from src.real_esrgan.upscale_image import Enchacer
 
 def main():
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    # img = Image.open(
-    #     "C:/Users/Vlad/Desktop/ВКР/datasets/RealBlur/RealBlur-J_ECC_IMCORR_centroid_itensity_ref/scene230/blur/blur_2.png"
-    # )
-    img = Image.open("C:/Users/Vlad/Pictures/SAM_7355.JPG")
+    img = Image.open(
+        "C:/Users/Vlad/Desktop/ВКР/datasets/RealBlur/RealBlur-J_ECC_IMCORR_centroid_itensity_ref/scene044/blur/blur_21.png"
+    )
+    # img = Image.open("C:/Users/Vlad/Pictures/SAM_7355.JPG")
     img = img.convert("RGB")
     img = ToTensor()(img).unsqueeze(0)
     model = NAFNetLocal(
@@ -27,7 +27,8 @@ def main():
     #    )["params"]
     # )
     checkpoint = torch.load(
-        "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/naf_net/weights/run_1/nafnet_real_blur_val_psnr=28.33.ckpt"
+        "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/naf_net/weights/run_3/nafnet_real_blur_val_psnr=28.34.ckpt",
+        weights_only=True,
     )
     model_weights = checkpoint["state_dict"]
     generator_model_weights = {}
