@@ -28,7 +28,6 @@ def pair_flip(blur_img, gt_img, p_flip):
 
 def pair_resize(blur_img, gt_img, scale=(0.8, 1.2)):
     scale_factor = np.random.uniform(*scale)
-    print(scale_factor)
     resize_blur = F.interpolate(
         blur_img.unsqueeze(0), scale_factor=scale_factor, mode="bicubic"
     )
