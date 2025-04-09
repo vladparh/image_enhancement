@@ -2,28 +2,97 @@ import logging
 import math
 
 import torch
+from bestconfig import Config
 from torch.nn import functional as F
 
+from src.models.naf_net.model.NAFNet_arch import NAFNetLocal
+from src.models.real_esrgan.generator import RRDBNet
 
-class Enchacer:
-    def __init__(self, scale, model, tile_size=0, tile_pad=10, pre_pad=10, device=None):
-        self.scale = scale
+
+class Enhancer:
+    """
+    Load model and enhance image
+
+    Attributes:
+        model_name (str): real_esrgan_x2, real_esrgan_x4, nafnet_realblur or nafnet_sidd
+        tile_size (int): tile size for image splitting
+        tile_pad (int): pad size for tile
+        pre_pad (int): pad size for image
+        device (str): device
+    """
+
+    def __init__(
+        self,
+        model_name: str,
+        tile_size: int = 400,
+        tile_pad: str = 10,
+        pre_pad: int = 10,
+        device: str = None,
+    ):
+        self.model_name = model_name
         self.tile_size = tile_size
         self.tile_pad = tile_pad
         self.pre_pad = pre_pad
-        self.mod_scale = None
         if device is None:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         else:
-            self.device = device
-        self.model = model.to(self.device)
+            self.device = torch.device(device)
+        self.scale = None
+        self.mod_scale = None
+        self.model = None
+
+    def load_model(self):
+        config = Config("model_configs.yaml")
+        if self.model_name == "real_esrgan_x2":
+            self.scale = config[self.model_name]["scale"]
+            self.model = RRDBNet(**config[self.model_name]["params"])
+            self.model.load_state_dict(
+                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
+                    "params_ema"
+                ]
+            )
+            self.model = self.model.to(self.device)
+        elif self.model_name == "real_esrgan_x4":
+            self.scale = config[self.model_name]["scale"]
+            self.model = RRDBNet(**config[self.model_name]["params"])
+            self.model.load_state_dict(
+                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
+                    "params_ema"
+                ]
+            )
+            self.model = self.model.to(self.device)
+        elif self.model_name == "nafnet_realblur":
+            self.scale = config[self.model_name]["scale"]
+            self.model = NAFNetLocal(**config[self.model_name]["params"])
+            checkpoint = torch.load(
+                config[self.model_name]["weights_path"],
+                weights_only=True,
+            )
+            model_weights = checkpoint["state_dict"]
+            generator_model_weights = {}
+            for key in list(model_weights):
+                if "model" in key:
+                    generator_model_weights[
+                        key.replace("model.", "")
+                    ] = model_weights.pop(key)
+            self.model.load_state_dict(generator_model_weights)
+            self.model = self.model.to(self.device)
+        elif self.model_name == "nafnet_sidd":
+            self.scale = config[self.model_name]["scale"]
+            self.model = NAFNetLocal(**config[self.model_name]["params"])
+            self.model.load_state_dict(
+                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
+                    "params"
+                ]
+            )
+            self.model = self.model.to(self.device)
         self.model.eval()
 
     def pre_process(self, img):
         """
         Pre-process, such as pre-pad and mod pad, so that the images can be divisible
         """
-        self.img = img.to(self.device)
+        self.img = img
         # pre_pad
         if self.pre_pad != 0:
             self.img = F.pad(self.img, (0, self.pre_pad, 0, self.pre_pad), "reflect")
@@ -45,7 +114,7 @@ class Enchacer:
 
     def process(self):
         # model inference
-        self.output = self.model(self.img)
+        self.output = self.model(self.img.to(self.device)).cpu()
 
     def tile_process(self):
         """It will first crop input images to tiles, and then process each tile.
@@ -95,9 +164,9 @@ class Enchacer:
                 # upscale tile
                 try:
                     with torch.no_grad():
-                        output_tile = self.model(input_tile)
-                except RuntimeError:
-                    logging.error("Error during processing tiles", exc_info=True)
+                        output_tile = self.model(input_tile.to(self.device)).cpu()
+                except RuntimeError as error:
+                    logging.error(error)
                 logging.info(f"\tTile {tile_idx}/{tiles_x * tiles_y}")
 
                 # output tile area on total image
@@ -145,6 +214,10 @@ class Enchacer:
 
     @torch.no_grad()
     def enhance(self, img: torch.Tensor) -> torch.Tensor:
+        try:
+            self.load_model()
+        except Exception:
+            logging.error("LoadModelError", exc_info=True)
         self.pre_process(img)
         if self.tile_size > 0:
             self.tile_process()
