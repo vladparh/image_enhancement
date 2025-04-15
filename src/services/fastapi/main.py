@@ -1,3 +1,4 @@
+# python -m src.services.fastapi.main
 import logging
 from contextlib import asynccontextmanager
 
@@ -46,4 +47,4 @@ async def webhook(request: Request) -> None:
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app", reload=True)
+    uvicorn.run(app="src.services.fastapi.main:app", reload=False, port=8000)

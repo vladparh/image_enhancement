@@ -1,5 +1,8 @@
 .idea
+.ipynb_checkpoints
 mlruns
+lightning_logs
+weights/
 __pycache__
 *.ipynb
 *.html

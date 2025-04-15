@@ -6,11 +6,10 @@ from src.models.image_enhance import Enhancer
 
 
 def main():
-    logging.basicConfig(level=logging.INFO)
     img = Image.open(
-        "C:/Users/Vlad/Pictures/Screenshots/0878ce1ef19d6369d809c7a4828eb2cb--porsche-bombshell.jpg"
+        "C:/Users/Vlad/Desktop/ВКР/datasets/RealBlur/RealBlur-J_ECC_IMCORR_centroid_itensity_ref/scene044/blur/blur_21.png"
     )
-    enhancer = Enhancer(model_name="real_esrgan_x4", tile_size=500, device="cuda")
+    enhancer = Enhancer(model_name="stripformer", tile_size=0, device="cuda")
     img = enhancer.enhance(img)
     img.show()
 

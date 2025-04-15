@@ -1,6 +1,6 @@
 real_esrgan_x2:
   scale: 2
-  weights_path: "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/models/real_esrgan/weights/RealESRGAN_x2plus.pth"
+  weights_path: "real_esrgan/weights/RealESRGAN_x2plus.pth"
   params:
     {
       num_in_ch: 3,
@@ -13,7 +13,7 @@ real_esrgan_x2:
 
 real_esrgan_x4:
   scale: 4
-  weights_path: "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/models/real_esrgan/weights/RealESRGAN_x4plus.pth"
+  weights_path: "real_esrgan/weights/RealESRGAN_x4plus.pth"
   params:
     {
       num_in_ch: 3,
@@ -26,7 +26,7 @@ real_esrgan_x4:
 
 nafnet_realblur:
   scale: 1
-  weights_path: "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/models/naf_net/weights/run_3/nafnet_real_blur_val_psnr=28.34.ckpt"
+  weights_path: "naf_net/weights/run_3/nafnet_real_blur_val_psnr=28.34.ckpt"
   params:
     {
       width: 32,
@@ -37,11 +37,31 @@ nafnet_realblur:
 
 nafnet_sidd:
   scale: 1
-  weights_path: "C:/Users/Vlad/Desktop/ВКР/image_enchancement/src/models/naf_net/weights/NAFNet-SIDD-width32.pth"
+  weights_path: "naf_net/weights/NAFNet-SIDD-width32.pth"
   params:
     {
       width: 32,
       enc_blk_nums: [2, 2, 4, 8],
       middle_blk_num: 12,
       dec_blk_nums: [2, 2, 2, 2],
+    }
+
+stripformer:
+  scale: 1
+  weights_path: "stripformer/weights/Stripformer_realblur_R.pth"
+
+mlwnet:
+  scale: 1
+  weights_path: "mlwnet/weights/realblur_j-width32.pth"
+  params: { dim: 32 }
+
+ufpdeblur:
+  scale: 1
+  weights_path: "ufpdeblur/weights/net_g_latest.pth"
+  params:
+    {
+      width: 64,
+      enc_blk_nums: [1, 1, 1, 28],
+      middle_blk_num: 1,
+      dec_blk_nums: [1, 1, 1, 1],
     }

@@ -1,12 +1,21 @@
 import logging
 import math
+import os
 
 import torch
 from bestconfig import Config
+from PIL import Image
 from torch.nn import functional as F
+from torchvision.transforms import ToTensor
+from torchvision.transforms.functional import to_pil_image
 
+from src.models.mlwnet.MLWNet_arch import MLWNet_Local
 from src.models.naf_net.model.NAFNet_arch import NAFNetLocal
 from src.models.real_esrgan.generator import RRDBNet
+from src.models.stripformer.model import Stripformer
+from src.models.ufpdeblur.UFPNet_code_uncertainty_arch import (
+    UFPNet_code_uncertainty_Local,
+)
 
 
 class Enhancer:
@@ -42,30 +51,31 @@ class Enhancer:
         self.model = None
 
     def load_model(self):
+        base_path = os.path.dirname(os.path.abspath(__file__))
         config = Config("model_configs.yaml")
         if self.model_name == "real_esrgan_x2":
             self.scale = config[self.model_name]["scale"]
             self.model = RRDBNet(**config[self.model_name]["params"])
             self.model.load_state_dict(
-                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
-                    "params_ema"
-                ]
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params_ema"]
             )
-            self.model = self.model.to(self.device)
         elif self.model_name == "real_esrgan_x4":
             self.scale = config[self.model_name]["scale"]
             self.model = RRDBNet(**config[self.model_name]["params"])
             self.model.load_state_dict(
-                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
-                    "params_ema"
-                ]
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params_ema"]
             )
-            self.model = self.model.to(self.device)
         elif self.model_name == "nafnet_realblur":
             self.scale = config[self.model_name]["scale"]
             self.model = NAFNetLocal(**config[self.model_name]["params"])
             checkpoint = torch.load(
-                config[self.model_name]["weights_path"],
+                os.path.join(base_path, config[self.model_name]["weights_path"]),
                 weights_only=True,
             )
             model_weights = checkpoint["state_dict"]
@@ -76,16 +86,50 @@ class Enhancer:
                         key.replace("model.", "")
                     ] = model_weights.pop(key)
             self.model.load_state_dict(generator_model_weights)
-            self.model = self.model.to(self.device)
         elif self.model_name == "nafnet_sidd":
             self.scale = config[self.model_name]["scale"]
             self.model = NAFNetLocal(**config[self.model_name]["params"])
             self.model.load_state_dict(
-                torch.load(config[self.model_name]["weights_path"], weights_only=True)[
-                    "params"
-                ]
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params"]
             )
-            self.model = self.model.to(self.device)
+        elif self.model_name == "stripformer":
+            self.scale = config[self.model_name]["scale"]
+            self.model = Stripformer()
+            model_weights = torch.load(
+                os.path.join(base_path, config[self.model_name]["weights_path"]),
+                weights_only=True,
+            )
+            generator_model_weights = {}
+            for key in list(model_weights):
+                if "module" in key:
+                    generator_model_weights[
+                        key.replace("module.", "")
+                    ] = model_weights.pop(key)
+            self.model.load_state_dict(generator_model_weights)
+        elif self.model_name == "mlwnet":
+            self.scale = config[self.model_name]["scale"]
+            self.model = MLWNet_Local(**config[self.model_name]["params"])
+            self.model.load_state_dict(
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params"]
+            )
+        elif self.model_name == "ufpdeblur":
+            self.scale = config[self.model_name]["scale"]
+            self.model = UFPNet_code_uncertainty_Local(
+                **config[self.model_name]["params"]
+            )
+            self.model.load_state_dict(
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params"]
+            )
+        self.model = self.model.to(self.device)
         self.model.eval()
 
     def pre_process(self, img):
@@ -213,15 +257,18 @@ class Enhancer:
         return self.output
 
     @torch.no_grad()
-    def enhance(self, img: torch.Tensor) -> torch.Tensor:
+    def enhance(self, img: Image) -> Image:
         try:
             self.load_model()
         except Exception:
             logging.error("LoadModelError", exc_info=True)
+        img = img.convert("RGB")
+        img = ToTensor()(img).unsqueeze(0)
         self.pre_process(img)
         if self.tile_size > 0:
             self.tile_process()
         else:
             self.process()
         output_img = self.post_process()
+        output_img = to_pil_image(output_img.squeeze(0).clamp(0, 1))
         return output_img

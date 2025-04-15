@@ -4,8 +4,6 @@ import logging
 from fastapi import APIRouter, HTTPException, UploadFile
 from fastapi.responses import Response
 from PIL import Image
-from torchvision.transforms import ToTensor
-from torchvision.transforms.functional import to_pil_image
 
 from src.models.image_enhance import Enhancer
 
@@ -29,9 +27,6 @@ async def upscale(scale: int = 2, image: UploadFile = None) -> Response:
         logging.error("Files read error", exc_info=True)
         raise HTTPException(status_code=400, detail="Something wrong with file")
 
-    img = img.convert("RGB")
-    img = ToTensor()(img).unsqueeze(0)
-
     if scale == 2:
         enhancer = Enhancer(model_name="real_esrgan_x2", tile_size=1000)
         logging.info("Upscale x2")
@@ -47,7 +42,6 @@ async def upscale(scale: int = 2, image: UploadFile = None) -> Response:
         logging.error("Image upscale error", exc_info=True)
         raise HTTPException(status_code=500, detail="Something wrong while processing")
 
-    img = to_pil_image(img.squeeze(0).clamp(0, 1))
     img_bytes = io.BytesIO()
     img.save(img_bytes, format="png")
     img_bytes = img_bytes.getvalue()
@@ -70,18 +64,14 @@ async def deblur(image: UploadFile = None) -> Response:
         logging.error("Files read error", exc_info=True)
         raise HTTPException(status_code=400, detail="Something wrong with file")
 
-    img = img.convert("RGB")
-    img = ToTensor()(img).unsqueeze(0)
-
     try:
         logging.info("Deblur image")
-        enhancer = Enhancer(model_name="nafnet_realblur", tile_size=1000)
+        enhancer = Enhancer(model_name="mlwnet", tile_size=1000)
         img = enhancer.enhance(img)
     except Exception:
         logging.error("Image deblur error", exc_info=True)
         raise HTTPException(status_code=500, detail="Something wrong while processing")
 
-    img = to_pil_image(img.squeeze(0).clamp(0, 1))
     img_bytes = io.BytesIO()
     img.save(img_bytes, format="png")
     img_bytes = img_bytes.getvalue()
@@ -104,9 +94,6 @@ async def denoise(image: UploadFile = None) -> Response:
         logging.error("Files read error", exc_info=True)
         raise HTTPException(status_code=400, detail="Something wrong with file")
 
-    img = img.convert("RGB")
-    img = ToTensor()(img).unsqueeze(0)
-
     try:
         logging.info("Denoise image")
         enhancer = Enhancer(model_name="nafnet_sidd", tile_size=1000)
@@ -115,7 +102,6 @@ async def denoise(image: UploadFile = None) -> Response:
         logging.error("Image denoise error", exc_info=True)
         raise HTTPException(status_code=500, detail="Something wrong while processing")
 
-    img = to_pil_image(img.squeeze(0).clamp(0, 1))
     img_bytes = io.BytesIO()
     img.save(img_bytes, format="png")
     img_bytes = img_bytes.getvalue()

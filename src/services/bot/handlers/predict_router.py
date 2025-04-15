@@ -1,14 +1,15 @@
+import io
 import logging
 
-import httpx
 from aiogram import Bot, F, Router
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import BufferedInputFile, Message, ReplyKeyboardRemove
+from PIL import Image
 
 import src.services.bot.handlers.keyboards as keyboards
-from src.services.bot.config_reader import settings
+from src.models.image_enhance import Enhancer
 
 
 class States(StatesGroup):
@@ -104,22 +105,22 @@ async def x2_upscale(message: Message, state: FSMContext, bot: Bot):
     """
     file = await bot.download(message.photo[-1])
     await message.answer(text="Подождите, идёт обработка...")
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            f"{settings.BASE_SITE}/enhance/upscale",
-            params={"scale": 2},
-            files={"image": file.getvalue()},
-            timeout=1000.0,
-        )
-    if response.status_code == 200:
+    try:
+        logging.info("Upscaling x2")
+        img = Image.open(file)
+        enhancer = Enhancer(model_name="real_esrgan_x2", tile_size=1000)
+        img = enhancer.enhance(img)
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format="png")
+        img_bytes = img_bytes.getvalue()
         await message.answer(text="Готово!")
         await bot.send_photo(
             chat_id=message.chat.id,
-            photo=BufferedInputFile(file=response.content, filename="image.png"),
+            photo=BufferedInputFile(file=img_bytes, filename="image.png"),
         )
         await state.clear()
-    else:
-        logging.error(f"API request error. Status code: {response.status_code}")
+    except Exception:
+        logging.error("Processing image error", exc_info=True)
         await message.answer(text="Упс! Что-то пошло не так, попробуйте позже")
         await state.clear()
 
@@ -131,22 +132,22 @@ async def x4_upscale(message: Message, state: FSMContext, bot: Bot):
     """
     file = await bot.download(message.photo[-1])
     await message.answer(text="Подождите, идёт обработка...")
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            f"{settings.BASE_SITE}/enhance/upscale",
-            params={"scale": 4},
-            files={"image": file.getvalue()},
-            timeout=1000.0,
-        )
-    if response.status_code == 200:
+    try:
+        logging.info("Upscaling x4")
+        img = Image.open(file)
+        enhancer = Enhancer(model_name="real_esrgan_x4", tile_size=500)
+        img = enhancer.enhance(img)
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format="png")
+        img_bytes = img_bytes.getvalue()
         await message.answer(text="Готово!")
         await bot.send_photo(
             chat_id=message.chat.id,
-            photo=BufferedInputFile(file=response.content, filename="image.png"),
+            photo=BufferedInputFile(file=img_bytes, filename="image.png"),
         )
         await state.clear()
-    else:
-        logging.error(f"API request error. Status code: {response.status_code}")
+    except Exception:
+        logging.error("Processing image error", exc_info=True)
         await message.answer(text="Упс! Что-то пошло не так, попробуйте позже")
         await state.clear()
 
@@ -158,21 +159,22 @@ async def deblur(message: Message, state: FSMContext, bot: Bot):
     """
     file = await bot.download(message.photo[-1])
     await message.answer(text="Подождите, идёт обработка...")
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            f"{settings.BASE_SITE}/enhance/deblur",
-            files={"image": file.getvalue()},
-            timeout=1000.0,
-        )
-    if response.status_code == 200:
+    try:
+        logging.info("Deblurring")
+        img = Image.open(file)
+        enhancer = Enhancer(model_name="nafnet_realblur", tile_size=1000)
+        img = enhancer.enhance(img)
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format="png")
+        img_bytes = img_bytes.getvalue()
         await message.answer(text="Готово!")
         await bot.send_photo(
             chat_id=message.chat.id,
-            photo=BufferedInputFile(file=response.content, filename="image.png"),
+            photo=BufferedInputFile(file=img_bytes, filename="image.png"),
         )
         await state.clear()
-    else:
-        logging.error(f"API request error. Status code: {response.status_code}")
+    except Exception:
+        logging.error("Processing image error", exc_info=True)
         await message.answer(text="Упс! Что-то пошло не так, попробуйте позже")
         await state.clear()
 
@@ -184,20 +186,21 @@ async def denoise(message: Message, state: FSMContext, bot: Bot):
     """
     file = await bot.download(message.photo[-1])
     await message.answer(text="Подождите, идёт обработка...")
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            f"{settings.BASE_SITE}/enhance/denoise",
-            files={"image": file.getvalue()},
-            timeout=1000.0,
-        )
-    if response.status_code == 200:
+    try:
+        logging.info("Denoising")
+        img = Image.open(file)
+        enhancer = Enhancer(model_name="nafnet_sidd", tile_size=1000)
+        img = enhancer.enhance(img)
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format="png")
+        img_bytes = img_bytes.getvalue()
         await message.answer(text="Готово!")
         await bot.send_photo(
             chat_id=message.chat.id,
-            photo=BufferedInputFile(file=response.content, filename="image.png"),
+            photo=BufferedInputFile(file=img_bytes, filename="image.png"),
         )
         await state.clear()
-    else:
-        logging.error(f"API request error. Status code: {response.status_code}")
+    except Exception:
+        logging.error("Processing image error", exc_info=True)
         await message.answer(text="Упс! Что-то пошло не так, попробуйте позже")
         await state.clear()
