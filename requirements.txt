@@ -5,3 +5,4 @@ bestconfig
 opencv-python
 torchmetrics
 torchinfo
+ptflops
