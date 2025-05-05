@@ -9,15 +9,15 @@ st.markdown(
     "Данная операция позволяет повысить разрешение, при этом повышается детализация, убираются шумы и артефакты сжатия."
 )
 st.image(
-    "src/services/streamlit/examples/ex_1.png", caption="Пример повышения разрешения"
+    "src/services/streamlit/examples/ex_1.jpg", caption="Пример повышения разрешения"
 )
 st.subheader("Удаление смазов")
 st.markdown(
     "Данная операция позволяет удалять смазы с изображения, возникающие в следствии тряски камеры. Лучше всего работает для изображений размером порядка 1 Мпикс."
 )
-st.image("src/services/streamlit/examples/ex_2.png", caption="Пример удаления смазов")
+st.image("src/services/streamlit/examples/ex_2.jpg", caption="Пример удаления смазов")
 st.subheader("Удаление шумов")
 st.markdown(
     "Данная операция позволяет удалять шумы с изображений, возникающие из-за особенностей устройства CMOS-матриц, которые используются в современных смартфонах и фотокамерах."
 )
-st.image("src/services/streamlit/examples/ex_3.png", caption="Пример удаления шумов")
+st.image("src/services/streamlit/examples/ex_3.jpg", caption="Пример удаления шумов")

@@ -1,6 +1,9 @@
 import pytorch_lightning as pl
 import torch
-from torchmetrics.functional.image import peak_signal_noise_ratio
+from torchmetrics.functional.image import (
+    peak_signal_noise_ratio,
+    structural_similarity_index_measure,
+)
 
 
 class NetTrainer(pl.LightningModule):
@@ -28,8 +31,12 @@ class NetTrainer(pl.LightningModule):
     def validation_step(self, batch, batch_idx):
         blur_img, gt_img = batch
         gen_img = self.model(blur_img)
-        val_metric = peak_signal_noise_ratio(gen_img, gt_img)
-        self.log("val_psnr", val_metric)
+        val_psnr = peak_signal_noise_ratio(gen_img, gt_img)
+        val_ssim = structural_similarity_index_measure(
+            gen_img, gt_img, data_range=(0, 1)
+        )
+        self.log("val_psnr", val_psnr)
+        self.log("val_ssim", val_ssim)
 
     def on_train_epoch_end(self):
         if self.use_scheduler:

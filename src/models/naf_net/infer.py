@@ -1,12 +1,31 @@
 import logging
+import time
 
 from PIL import Image
 
 from src.models.image_enhance import Enhancer
 
 
+def timeit(func):
+    """
+    Decorator for measuring function's running time.
+    """
+
+    def measure_time(*args, **kw):
+        start_time = time.time()
+        result = func(*args, **kw)
+        print(
+            "Processing time of %s(): %.2f seconds."
+            % (func.__qualname__, time.time() - start_time)
+        )
+        return result
+
+    return measure_time
+
+
+@timeit
 def main():
-    img = Image.open("C:/Users/Vlad/Pictures/SAM_1627.JPG")
+    img = Image.open("C:/Users/Vlad/Pictures/SAM_7355.JPG")
     enhancer = Enhancer(model_name="nafnet_realblur", tile_size=1000, device="cuda")
     img = enhancer.enhance(img)
     img.show()

@@ -1,9 +1,11 @@
 # from https://github.com/xinntao/Real-ESRGAN.git
 import torch
+from ptflops import get_model_complexity_info
 from torch import nn as nn
 from torch.nn import functional as F
 from torch.nn import init as init
 from torch.nn.modules.batchnorm import _BatchNorm
+from torchinfo import summary
 
 
 @torch.no_grad()
@@ -192,3 +194,29 @@ class RRDBNet(nn.Module):
         )
         out = self.conv_last(self.lrelu(self.conv_hr(feat)))
         return out
+
+
+if __name__ == "__main__":
+    params = {
+        "num_in_ch": 3,
+        "num_out_ch": 3,
+        "num_feat": 64,
+        "num_block": 23,
+        "num_grow_ch": 32,
+        "scale": 4,
+    }
+    model = RRDBNet(**params)
+    summary(
+        model,
+        input_size=(1, 3, 64, 64),
+    )
+    with torch.cuda.device(0):
+        macs, _ = get_model_complexity_info(
+            model,
+            (3, 64, 64),
+            as_strings=True,
+            backend="pytorch",
+            print_per_layer_stat=False,
+            verbose=False,
+        )
+        print("{:<30}  {:<8}".format("Computational complexity: ", macs))

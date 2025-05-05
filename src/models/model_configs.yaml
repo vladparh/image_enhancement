@@ -65,3 +65,65 @@ ufpdeblur:
       middle_blk_num: 1,
       dec_blk_nums: [1, 1, 1, 1],
     }
+
+swinir_x4:
+  scale: 4
+  weights_path: "swinir/weights/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth"
+  params:
+    {
+      upscale: 4,
+      in_chans: 3,
+      img_size: 64,
+      window_size: 8,
+      img_range: 1.,
+      depths: [6, 6, 6, 6, 6, 6],
+      embed_dim: 180,
+      num_heads: [6, 6, 6, 6, 6, 6],
+      mlp_ratio: 2,
+      upsampler: "nearest+conv",
+      resi_connection: "1conv",
+    }
+
+hat_x4:
+  scale: 4
+  weights_path: "hat/weights/Real_HAT_GAN_SRx4.pth"
+  params:
+    {
+      upscale: 4,
+      in_chans: 3,
+      img_size: 64,
+      window_size: 16,
+      compress_ratio: 3,
+      squeeze_factor: 30,
+      conv_scale: 0.01,
+      overlap_ratio: 0.5,
+      img_range: 1.,
+      depths: [6, 6, 6, 6, 6, 6],
+      embed_dim: 180,
+      num_heads: [6, 6, 6, 6, 6, 6],
+      mlp_ratio: 2,
+      upsampler: "pixelshuffle",
+      resi_connection: "1conv",
+    }
+
+drct_x4:
+  scale: 4
+  weights_path: "drct/weights/Real_DRCT_GAN_SRx4_finetuned_from_mse_net_g_latest"
+  params:
+    {
+      upscale: 4,
+      in_chans: 3,
+      img_size: 64,
+      window_size: 16,
+      compress_ratio: 3,
+      squeeze_factor: 30,
+      conv_scale: 0.01,
+      overlap_ratio: 0.5,
+      img_range: 1.,
+      depths: [6, 6, 6, 6, 6, 6],
+      embed_dim: 180,
+      num_heads: [6, 6, 6, 6, 6, 6],
+      mlp_ratio: 2,
+      upsampler: "pixelshuffle",
+      resi_connection: "1conv",
+    }

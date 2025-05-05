@@ -8,6 +8,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from ptflops import get_model_complexity_info
 from torchinfo import summary
 
 from src.models.mlwnet.wavelet_block import LWN
@@ -455,4 +456,15 @@ class MLWNet_Local(Local_Base, MLWNet):
 
 
 if __name__ == "__main__":
-    summary(MLWNet_Local(dim=64), input_size=(1, 3, 670, 763))
+    model = MLWNet_Local(dim=32)
+    summary(model, input_size=(1, 3, 64, 64))
+    with torch.cuda.device(0):
+        macs, _ = get_model_complexity_info(
+            model,
+            (3, 64, 64),
+            as_strings=True,
+            backend="pytorch",
+            print_per_layer_stat=False,
+            verbose=False,
+        )
+        print("{:<30}  {:<8}".format("Computational complexity: ", macs))

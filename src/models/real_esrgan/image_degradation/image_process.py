@@ -224,4 +224,4 @@ def image_degradation(img: torch.Tensor, scale_factor=4):
 
     # clamp and round
     lq = torch.clamp((out * 255.0).round(), 0, 255) / 255.0
-    return lq.squeeze()
+    return lq.squeeze(), gt.squeeze()

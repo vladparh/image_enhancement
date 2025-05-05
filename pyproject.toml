@@ -2,7 +2,7 @@
 name = "image_enchancement"
 version = "0.1.0"
 description = ""
-authors = ["vladparh <vladparh@yahoo.com>"]
+authors = ["vladparh"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -24,6 +24,9 @@ pywavelets = "1.6.0"
 einops = "^0.8.1"
 streamlit = "^1.44.1"
 streamlit-image-comparison = "^0.0.4"
+ptflops = "^0.7.4"
+timm = "^1.0.15"
+pyiqa = "^0.1.13"
 
 
 

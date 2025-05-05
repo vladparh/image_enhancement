@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from ptflops import get_model_complexity_info
 from torchinfo import summary
 
 try:
@@ -272,12 +273,23 @@ if __name__ == "__main__":
     enc_blk_nums = [1, 1, 1, 28]
     middle_blk_num = 1
     dec_blk_nums = [1, 1, 1, 1]
-    summary(
-        NAFNetLocal(
-            width=width,
-            enc_blk_nums=enc_blk_nums,
-            middle_blk_num=middle_blk_num,
-            dec_blk_nums=dec_blk_nums,
-        ),
-        input_size=(1, 3, 256, 256),
+    model = NAFNetLocal(
+        width=width,
+        enc_blk_nums=enc_blk_nums,
+        middle_blk_num=middle_blk_num,
+        dec_blk_nums=dec_blk_nums,
     )
+    summary(
+        model,
+        input_size=(1, 3, 64, 64),
+    )
+    with torch.cuda.device(0):
+        macs, _ = get_model_complexity_info(
+            model,
+            (3, 64, 64),
+            as_strings=True,
+            backend="pytorch",
+            print_per_layer_stat=False,
+            verbose=False,
+        )
+        print("{:<30}  {:<8}".format("Computational complexity: ", macs))

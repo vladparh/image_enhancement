@@ -25,8 +25,8 @@ def timeit(func):
 
 @timeit
 def main():
-    img = Image.open("C:/Users/Vlad/Downloads/camel.jpeg")
-    enhancer = Enhancer(model_name="real_esrgan_x4", tile_size=256, device="cuda")
+    img = Image.open("C:/Users/Vlad/Pictures/Screenshots/SAM_7310.JPG")
+    enhancer = Enhancer(model_name="swinir_x4", tile_size=256, device="cuda")
     img = enhancer.enhance(img)
     img.show()
 

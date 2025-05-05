@@ -9,10 +9,13 @@ from torch.nn import functional as F
 from torchvision.transforms import ToTensor
 from torchvision.transforms.functional import to_pil_image
 
+from src.models.drct.model import DRCT
+from src.models.hat.model import HAT
 from src.models.mlwnet.MLWNet_arch import MLWNet_Local
 from src.models.naf_net.model.NAFNet_arch import NAFNetLocal
 from src.models.real_esrgan.generator import RRDBNet
 from src.models.stripformer.model import Stripformer
+from src.models.swinir.model import SwinIR
 from src.models.ufpdeblur.UFPNet_code_uncertainty_arch import (
     UFPNet_code_uncertainty_Local,
 )
@@ -34,7 +37,7 @@ class Enhancer:
         self,
         model_name: str,
         tile_size: int = 400,
-        tile_pad: str = 10,
+        tile_pad: int = 10,
         pre_pad: int = 10,
         device: str = None,
     ):
@@ -49,6 +52,7 @@ class Enhancer:
         self.scale = None
         self.mod_scale = None
         self.model = None
+        self.swin = False
 
     def load_model(self):
         base_path = os.path.dirname(os.path.abspath(__file__))
@@ -129,6 +133,43 @@ class Enhancer:
                     weights_only=True,
                 )["params"]
             )
+        elif self.model_name == "swinir_x4":
+            self.scale = config[self.model_name]["scale"]
+            params = config[self.model_name]["params"]
+            self.model = SwinIR(**params)
+            self.model.load_state_dict(
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params_ema"]
+            )
+            self.swin = True
+            self.window_size = params["window_size"]
+        elif self.model_name == "hat_x4":
+            self.scale = config[self.model_name]["scale"]
+            params = config[self.model_name]["params"]
+            self.model = HAT(**params)
+            self.model.load_state_dict(
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params_ema"]
+            )
+            self.swin = True
+            self.window_size = params["window_size"]
+        elif self.model_name == "drct_x4":
+            self.scale = config[self.model_name]["scale"]
+            params = config[self.model_name]["params"]
+            self.model = DRCT(**params)
+            self.model.load_state_dict(
+                torch.load(
+                    os.path.join(base_path, config[self.model_name]["weights_path"]),
+                    weights_only=True,
+                )["params_ema"]
+            )
+            self.swin = True
+            self.window_size = params["window_size"]
+
         self.model = self.model.to(self.device)
         self.model.eval()
 
@@ -208,6 +249,8 @@ class Enhancer:
                 # upscale tile
                 try:
                     with torch.no_grad():
+                        if self.swin:
+                            input_tile = self.pad_tile(input_tile)
                         output_tile = self.model(input_tile.to(self.device)).cpu()
                 except RuntimeError as error:
                     logging.error(error)
@@ -235,6 +278,12 @@ class Enhancer:
                     output_start_x_tile:output_end_x_tile,
                 ]
 
+    def pad_tile(self, tile):
+        height, width = tile.shape[2:]
+        pad_height = (self.window_size - (height % self.window_size)) % self.window_size
+        pad_width = (self.window_size - (width % self.window_size)) % self.window_size
+        return F.pad(tile, (0, pad_width, 0, pad_height), "reflect")
+
     def post_process(self):
         # remove extra pad
         if self.mod_scale is not None:
@@ -254,7 +303,7 @@ class Enhancer:
                 0 : h - self.pre_pad * self.scale,
                 0 : w - self.pre_pad * self.scale,
             ]
-        return self.output
+        return self.output.clip(0, 1)
 
     @torch.no_grad()
     def enhance(self, img: Image) -> Image:

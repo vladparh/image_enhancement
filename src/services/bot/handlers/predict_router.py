@@ -30,7 +30,7 @@ async def stop_router(message: Message, state: FSMContext):
     """
     Cancel enhancement
     """
-    await message.answer("Процесс остановлен")
+    await message.answer("Процесс остановлен", reply_markup=ReplyKeyboardRemove())
     await state.clear()
 
 
